@@ -64,6 +64,8 @@ section.allElems{
     border-radius: 5px;
     position:relative;
     transition: transfrom 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0 0 0 0.2)
 }
 .elem:active{
     transform: scale(0.97)
@@ -88,6 +90,23 @@ font-weight: 500;
     height: 100%;
     width:100%;
     padding: 40px;
-    font-size: 10px;
+    font-size: 20px;
     display: none;
+    position: absolute;
+    top:0;
+}
+
+.OuterElem button{
+    padding: 10px 11px;
+    font-weight: 500;
+    background-color: red;
+    color:white;
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    right:5%;
+    cursor:pointer;
+}
+.OuterElem button:active{
+    transform:scale(0.97);
 }
