@@ -56,21 +56,19 @@ var sum='';
             </div>`
     })
     allTask.innerHTML = sum;
-}
 
-
-//Delete
-function delte(){
+    //Delete
 var del = document.querySelectorAll('.del');
 del.forEach(function(btn,i){
     btn.addEventListener('click',function(){
         currentTask.splice(i,1)
         localStorage.setItem("arr",JSON.stringify(currentTask))
         renderTask()
-        delte()
-        x()
 
     })
 });
 }
-delte()
+
+
+
+

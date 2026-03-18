@@ -111,9 +111,6 @@ font-weight: 500;
     transform:scale(0.97);
 }
 
-.todo-list-fullpage{
-    /* display: block; */
-}
 
 .todo-list-fullpage .todo-container{
     margin-top: 20px;
