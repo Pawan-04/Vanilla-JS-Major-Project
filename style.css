@@ -112,7 +112,7 @@ font-weight: 500;
 }
 
 .todo-list-fullpage{
-    display: block;
+    /* display: block; */
 }
 
 .todo-list-fullpage .todo-container{
@@ -246,4 +246,27 @@ border-radius: 5px;
 }
 .addTask form .markimp input{
     scale:1;
+}
+
+summary{
+    font-size: 10px;
+    padding: 3px;
+    background-color: rgb(215, 237, 69);
+}
+details{
+    font-size: 14px;
+    background-color: rgb(103, 216, 247);
+
+}
+.summ{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.del{
+    padding: 1px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 2px;
 }
