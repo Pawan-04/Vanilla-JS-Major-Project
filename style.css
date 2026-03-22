@@ -1,8 +1,8 @@
 :root{
-    --prim:#FFF58A;
-    --sec:#FFBBE1;
-    --tri:#DD7BDF;
-    --tri2:#B3BFFF;
+    --prim:#0F172A;
+    --sec:#1E293B;
+    --tri:#3B82F6;
+    --tri2:#F8FAFC;
 }
 
 @font-face{
@@ -33,6 +33,7 @@ html,body{
     width:100%;
     height:100%;
     background: var(--prim) ;
+    color: white;
 }
 
 .main{width:100%;
@@ -86,7 +87,7 @@ font-weight: 500;
 }
 
 .OuterElem{
-    background-color: var(--prim);
+    background-color: var(--sec);
     height: 100%;
     width:100%;
     padding: 40px;
@@ -266,4 +267,219 @@ details{
     color: white;
     border: none;
     border-radius: 2px;
+}
+
+.OuterElem.daily-planner-fullpage{
+    /* display: block; */
+
+}
+/*                                                       Todod List Over                                                                                     */
+.planner-container{
+        margin-top: 20px;
+    /* background-color:var(--tri2); */
+    width:100%;
+    height: 90%;
+    display: flex;
+    /* flex-direction: row; */
+   justify-content: space-between;
+    align-items:self-start;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+.addPlan{
+    display: flex;
+    flex-direction: row;
+    width: 49%;
+   
+    border-radius: 5px;
+    height: 60px;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.addPlan .timeClass{
+    position: absolute;
+    left: 2%;
+    top:1%;
+    font-size: 15px;
+    margin-top: 2px;
+    color: gainsboro;
+    
+}
+.addPlan .timeInput{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    outline: none;
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: var(--prim);
+    font-size: 15px;
+    color: white;
+    margin-top: 2px;
+}
+
+/*                                  Motivational Qutoes                              */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIX CARDS */
+.elem{
+    background-color: var(--sec);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.elem:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* TEXT */
+.elem h2{
+    color: var(--tri2);
+    background: rgba(0,0,0,0.3);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* BACK BUTTON */
+.OuterElem .back{
+    background-color: var(--tri);
+    color: var(--tri2);
+    transition: 0.3s;
+}
+.OuterElem .back:hover{
+    opacity: 0.85;
+}
+
+/* ADD TASK PANEL */
+.todo-container .addTask{
+    background-color: var(--tri2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ALL TASK PANEL */
+.todo-container .allTask{
+    background-color: var(--tri2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* INPUT */
+.addTask form .inp{
+    background-color: var(--sec);
+    color: var(--tri2);
+    border-radius: 8px;
+}
+.addTask form .inp:focus{
+    outline: 2px solid var(--tri);
+}
+
+/* BUTTON */
+.addTask form button{
+    background-color: var(--tri);
+    color: var(--tri2);
+    transition: 0.3s;
+}
+.addTask form button:hover{
+    transform: translateY(-2px);
+}
+
+/* TASK CARD */
+.allTask .task{
+    background-color: var(--tri2);
+    color: var(--prim);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.allTask .task:hover{
+    transform: scale(1.02);
+}
+
+/* TASK BUTTON */
+.allTask .task button{
+    background-color: var(--tri);
+    color: var(--tri2);
+}
+
+/* IMPORTANT TAG */
+.allTask .task #true{
+    background-color: var(--tri);
+}
+
+/* DELETE BUTTON */
+.del{
+    background-color: var(--tri);
+    color: var(--tri2);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* DETAILS */
+summary{
+    background-color: var(--tri);
+    color: var(--tri2);
+}
+details{
+    background-color: var(--sec);
+    color: var(--tri2);
+}
+
+/* PLANNER */
+.addPlan{
+    background-color: var(--sec);
+    transition: 0.3s;
+}
+.addPlan:hover{
+    transform: scale(1.02);
+}
+
+/* INPUT */
+.addPlan .timeInput{
+    background-color: var(--prim);
+    color: var(--tri2);
+}
+
+/* NAV FIX */
+nav{
+    background-color: var(--tri2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }

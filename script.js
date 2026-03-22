@@ -1,6 +1,6 @@
 
 function runFeatures(){
-    var allElems = document.querySelectorAll('.elem');
+var allElems = document.querySelectorAll('.elem');
 var OuterElem = document.querySelectorAll('.OuterElem')
 var OuterElemBackBtn = document.querySelectorAll('.back')
 
@@ -19,6 +19,8 @@ OuterElemBackBtn.forEach(function(btn){
 runFeatures()
 // feature
 
+
+function runTodo(){
 var taskName = document.querySelector('.addTask input');
 var taskArea = document.querySelector('.addTask textarea');
 var  taskForm = document.querySelector('.addTask form');
@@ -67,8 +69,57 @@ del.forEach(function(btn,i){
 
     })
 });
+taskName.value = ''
+taskCheck.checked=false
+taskArea.value = ''
+
 }
+}
+//runTodo()
+
+
+// Daily Planner
+function dailyPlanner(){
+    var hours = Array.from({length: 18},function(e,i){
+    return `<div class="addPlan">
+                <p class = 'timeClass'>${i}:00 - ${i+1}:00</p>
+                <input placeholder = ... type="text"class="timeInput"/>
+            </div>`
+})
+// console.log(hours)
+
+document.querySelector('.planner-container').innerHTML=hours.join('')
 
 
 
 
+
+
+var inp = document.querySelectorAll('.timeInput');
+var arr3 =[]
+
+// inp.forEach(function(inputs,ind){
+//         arr3.push({key:""})
+// })                                                                    NOT REQUIRED
+// console.log(arr3)
+
+inp.forEach(function(ele,i){
+    ele.addEventListener('input',function(){
+        arr3[i] = {key:ele.value}
+        console.log(arr3)
+        localStorage.setItem('comments',JSON.stringify(arr3))
+    })
+})
+
+function hr(){
+    var data = localStorage.getItem('comments')
+    if(data){
+            arr3 = JSON.parse(data)
+    }
+    
+    inp.forEach(function(elem,i){
+        elem.value = arr3[i]?.key || ""
+    })
+}
+hr()}
+dailyPlanner();
