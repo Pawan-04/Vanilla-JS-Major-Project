@@ -16,7 +16,7 @@ OuterElemBackBtn.forEach(function(btn){
     })
 })
 }
-runFeatures()
+//runFeatures()
 // feature
 
 
@@ -122,4 +122,22 @@ function hr(){
     })
 }
 hr()}
-dailyPlanner();
+//dailyPlanner();
+
+
+var motivationalContent = document.querySelector('.motivation-content p')
+var author = document.querySelector('.motivation-footer h2')
+
+var rand = Math.round(Math.random()*100)
+
+async function quoteApi(){
+    let temp = await fetch('https://motivational-spark-api.vercel.app/api/quotes')
+    data = await temp.json();
+    
+
+motivationalContent.textContent = data[rand]['quote']
+author.textContent = data[rand]['author']
+}
+quoteApi()
+
+

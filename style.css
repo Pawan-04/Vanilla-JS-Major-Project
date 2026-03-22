@@ -324,15 +324,85 @@ details{
 /*                                  Motivational Qutoes                              */
 
 
+.OuterElem.motivation-fullpage{
+    display: block;
+    
+}
+
+.OuterElem-motivation-fullpage-container{
+    width:100%;
+    background-color: var(--tri2);
+    z-index: 10;
+    margin-top: 20px;
+    position: relative;
+    margin-top: 7%;
+    border-radius: 15px;
+
+}
+
+.OuterElem-motivation-fullpage-container::after{
+ content: '';
+ width: 100%;
+ height: 100%;
+ background-color: var(--tri);
+ position: absolute;
+ z-index: -10;
+ top: 0;
+ left: 0;
+ filter: blur(25px);
+}
 
 
+.motivation-fullpage-container-main{
+    width:100%;
+    
+    background-color: var(--prim);
+     border-radius: 15px;
+}
 
+.heading{
+    width:100%;
+    /* background-color: var(--tri); */
+    padding: 20px;
+    position: relative;
+}
+.heading h1{
+    font-size: 30px;
+    background-color: var(--tri);
+    width: fit-content;
+    padding: 12px;
+    border-radius: 15px;
+}
+.heading img{
+    position: absolute;
+    right: 2%;
+    top:0;
+}
 
+.motivation-content{
+    padding: 20px;
+    margin-bottom: 1%;
+}
+.motivation-content p{
+    font-size: 35px;
+}
+.motivation-footer{
+    width: 100%;
+   
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+    
+}
+.motivation-footer h2{
 
-
-
-
-
+    width: fit-content;
+    background-color: #3B82F6;
+    padding: 15px;
+    border-radius: 15px;
+}
 
 
 
