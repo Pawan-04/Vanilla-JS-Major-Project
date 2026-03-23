@@ -16,7 +16,7 @@ OuterElemBackBtn.forEach(function(btn){
     })
 })
 }
-//runFeatures()
+// runFeatures()
 // feature
 
 
@@ -122,9 +122,11 @@ function hr(){
     })
 }
 hr()}
-//dailyPlanner();
+// dailyPlanner();
 
 
+//MotivationalQuote
+function motivationalQuote(){
 var motivationalContent = document.querySelector('.motivation-content p')
 var author = document.querySelector('.motivation-footer h2')
 
@@ -140,4 +142,88 @@ author.textContent = data[rand]['author']
 }
 quoteApi()
 
+}
 
+// motivationalQuote();
+
+
+
+function pomodoroTimer(){var start = document.querySelector('.start')
+var stop = document.querySelector('.stop')
+var reset = document.querySelector('.reset')
+var min = document.querySelector('.min')
+var sec = document.querySelector('.sec')
+
+var session = document.querySelector('.work')
+
+var isWorking = true;
+var totalTime = 25 * 60;
+
+
+
+function updateTimer() {
+    console.log()
+    let mins = Math.floor(totalTime / 60);
+    let secs = totalTime % 60
+
+    mins = mins < 10 ? "0" + mins : mins;
+    secs = secs < 10 ? "0" + secs : secs;
+    min.textContent = mins;
+    sec.textContent = secs;
+
+}
+updateTimer()
+
+
+var strInterval = null
+
+stop.addEventListener('click', function () {
+    clearInterval(strInterval)
+    strInterval = null
+})
+
+
+start.addEventListener('click', function () {
+    if (strInterval != null) {
+        return;
+    }
+    strInterval = setInterval(() => {
+      totalTime--;
+
+if (totalTime <= 0) {
+    clearInterval(strInterval);
+    strInterval = null;
+
+    if (isWorking) {
+        // Work → Break
+        isWorking = false;
+        totalTime = 5 * 60;
+        session.style.backgroundColor = "red";
+        session.textContent = "Break Time";
+    } else {
+        // Break → Work
+        isWorking = true;
+        totalTime = 25 * 60;
+        session.style.backgroundColor = "green";
+        session.textContent = "Work Session";
+    }
+
+    updateTimer();
+    return;
+}
+        updateTimer()
+        console.log(totalTime)
+    }, 10)
+})
+
+
+reset.addEventListener('click', function () {
+    clearInterval(strInterval)
+    strInterval = null;
+    totalTime = 25 * 60;
+    updateTimer();
+})
+
+}
+//pomodoroTimer()
+// pomodoroTimer
