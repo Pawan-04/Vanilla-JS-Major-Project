@@ -16,7 +16,7 @@ OuterElemBackBtn.forEach(function(btn){
     })
 })
 }
-// runFeatures()
+runFeatures()
 // feature
 
 
@@ -75,7 +75,7 @@ taskArea.value = ''
 
 }
 }
-//runTodo()
+runTodo()
 
 
 // Daily Planner
@@ -122,7 +122,7 @@ function hr(){
     })
 }
 hr()}
-// dailyPlanner();
+dailyPlanner();
 
 
 //MotivationalQuote
@@ -144,7 +144,7 @@ quoteApi()
 
 }
 
-// motivationalQuote();
+motivationalQuote();
 
 
 
@@ -225,5 +225,109 @@ reset.addEventListener('click', function () {
 })
 
 }
-//pomodoroTimer()
+pomodoroTimer()
 // pomodoroTimer
+
+
+function weatherSection(){
+    var day = document.querySelector('.weather-header h1')
+var city = document.querySelector('.weather-header h2')
+var temp = document.querySelector('.weather-header2 h1')
+var rain = document.querySelector('.weather-header2 h2')
+var h3 = document.querySelectorAll('.weather-header2 h3')
+
+
+var apiKey = '87cf32deedd9442793a70453250305'
+var cityName = "Delhi"
+// openSenseMap API Example
+
+async function fetchWeather(){
+    var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`);
+    var data = await response.json();
+    city.innerHTML = data.location.name;
+    temp.innerHTML = data.current.temp_c+" °C";
+    rain.innerHTML = data.current.condition.text;
+
+    h3[0].innerHTML= "Perception: "+data.current.heatindex_f+'%';
+    h3[1].innerHTML= "Rain: "+data.current.windchill_f+"%"
+
+    h3[2].innerHTML="Humadity: "+data.current.humidity+"%";
+}
+fetchWeather()
+
+var weatherDay = document.querySelector('.weather-header h1')
+var weatherDate = document.querySelector('.weather-header p')
+function updateDate(){
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    var date = new Date();
+    var day = date.getDay()
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    // console.log(day,hours,minutes,seconds)
+
+
+    if(hours>12){
+        hours = hours-12
+        weatherDay.innerHTML = `${days[day]}, ${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds} PM`;
+    }
+    else{
+        weatherDay.innerHTML = `${days[day]}, ${String(hours).padStart('2','0')}:${String(minutes).padStart('2','0')}:${String(seconds).padStart('2','0')} AM`;
+    }
+
+    weatherDate.innerHTML = `${String(date.getDate()).padStart('2','0')} ${months[date.getMonth()]},${date.getFullYear()}`
+
+
+
+
+
+
+    function changeImage(){
+        if(hours>0 && hours<10){
+        document.querySelector('.weather').style.backgroundImage = "url('https://images.unsplash.com/photo-1762498509471-58f3482089d1?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+
+        }
+        else if(hours>10 && hours<18){
+        document.querySelector('.weather').style.backgroundImage = "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+        }
+        else if(hours>18 && hours<22){
+        document.querySelector('.weather').style.backgroundImage = "url('https://images.unsplash.com/photo-1705516121728-da619fb299a9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+        }
+    }
+    changeImage()
+    
+}
+setInterval(updateDate,1000)
+}
+weatherSection()
+
+
+
+function changeTheme(){
+     var flag =1;
+     var rootElement = document.documentElement
+
+
+document.querySelector('.ri-sun-fill').addEventListener('click',function(){
+    if (flag == 0) {
+            rootElement.style.setProperty('--pri', '#F8F4E1')
+            rootElement.style.setProperty('--sec', '#222831')
+            rootElement.style.setProperty('--tri', '#948979')
+            rootElement.style.setProperty('--tri2', '#393E46')
+            flag = 1
+        } else if (flag == 1) {
+            rootElement.style.setProperty('--pri', '#F1EFEC')
+            rootElement.style.setProperty('--sec', '#030303')
+            rootElement.style.setProperty('--tri', '#D4C9BE')
+            rootElement.style.setProperty('--tri2', '#123458')
+            flag = 2
+        } else if (flag == 2) {
+            rootElement.style.setProperty('--pri', '#F8F4E1')
+            rootElement.style.setProperty('--sec', '#381c0a')
+            rootElement.style.setProperty('--tri', '#FEBA17')
+            rootElement.style.setProperty('--tri2', '#74512D')
+            flag = 0
+        }})
+    }
+    changeTheme()
