@@ -31,7 +31,7 @@ var taskCheck = document.querySelector('.addTask form #check')
 
 
 var currentTask = []
-currentTask = JSON.parse(localStorage.getItem('arr'))
+currentTask = JSON.parse(localStorage.getItem('arr'))||[]
 renderTask();
 
 taskForm.addEventListener('submit',function(e){
