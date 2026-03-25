@@ -1,6 +1,0 @@
-*CSS
-Roots - var(root_name);
-font-face{}
-
-section.className ->section whoes className is {className}
-section .className -> all elemnts of class {className} in the section

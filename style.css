@@ -8,19 +8,19 @@
 @font-face{
     font-family: "Aeonik";
     font-weight: 500;
-    src:url('AeonikTRIAL-Bold.otf')
+    src:url(',/XeonikTRIAL-Bold.otf')
 }
 
 @font-face{
     font-family: "Aeonik";
     font-weight: 700;
-    src:url('./AeonikTRIAL-Light.otf')
+    src:url('./XeonikTRIAL-Light.otf')
 }
 
 @font-face{
     font-family:"Aeonik";
     font-weight:300;
-    src:url("./AeonikTRIAL-Regular.otf")
+    src:url("./XeonikTRIAL-Regular.otf")
 }
 
 
@@ -732,7 +732,7 @@ details p{
 
 
 /* // responsive */
-/* --- RESPONSIVE MEDIA QUERIES --- */
+
 
 /* For Tablets and smaller screens (under 1024px) */
 @media (max-width: 1024px) {
@@ -822,7 +822,7 @@ details p{
     }
 }
 
-/* Fix for hidden overflow on the main container for small screens */
+
 @media (max-height: 700px) {
     .main {
         overflow-y: auto;
