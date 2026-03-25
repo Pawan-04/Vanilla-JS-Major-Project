@@ -258,7 +258,7 @@ var rain = document.querySelector('.weather-header2 h2')
 var h3 = document.querySelectorAll('.weather-header2 h3')
 
 
-// var apiKey = 'API Key'
+var apiKey = '87cf32deedd9442793a70453250305'
 var cityName = "Delhi"
 // openSenseMap API Example
 
