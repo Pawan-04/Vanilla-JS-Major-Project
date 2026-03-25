@@ -38,19 +38,20 @@ html,body{
 
 .main{width:100%;
         height: 100%;
-    padding: 20px;}
+    padding: 15px;
+overflow: hidden;}
 
 .nav{
     
     width:100%;
-    height:80px;
+    /* height:80px; */
     background-color: var(--sec);
     margin-bottom: 10px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 5px 20px;
 }
 nav h2{
     font-size: 30px;
@@ -83,12 +84,12 @@ section.allElems{
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap:10px;
+    gap:5px;
 }
 
 .elem{
     height:300px;
-    width:220px;
+    width:20%;
     
     overflow: hidden;
     border-radius: 5px;
@@ -222,7 +223,7 @@ border-radius: 5px;
     display: flex;
    align-items: center;
    justify-content: space-between;
-   background-color: white;
+   background-color:black;
    padding: 10px 10px;
    border-radius: 10px;
 }
@@ -268,7 +269,7 @@ border-radius: 5px;
 
 .addTask form .markimp label{
     font-size: 15px;
-    color: white;
+    color: var(--tri);
     margin-left: 10px;
 }
 .addTask form .markimp input{
@@ -404,8 +405,21 @@ details{
 }
 .heading img{
     position: absolute;
+    width: 70px;
     right: 2%;
-    top:0;
+    top:15%;
+   background-color: var(--tri);
+    
+    /* 2. Apply the PNG as a mask */
+    -webkit-mask-image: url('pd.png');
+    mask-image: url('pd.png');
+    
+    /* 3. Ensure the mask fits perfectly */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    opacity: 0.7;
 }
 
 .motivation-content{
@@ -428,7 +442,7 @@ details{
 .motivation-footer h2{
 
     width: fit-content;
-    background-color: #3B82F6;
+    background-color: var(--tri);
     padding: 15px;
     border-radius: 15px;
 }
@@ -487,7 +501,7 @@ padding: 150px 400px;
     box-shadow: 0px 0px 0px black;
 }
 .work{
-    background-color: green;
+    background-color: var(--tri);
     display: flex;
     justify-content: center;
     border-radius: 5px;
@@ -501,7 +515,7 @@ padding: 150px 400px;
 section.allElems .weather{
     background-color: var(--prim);
     width:100%;
-    
+    height: 180px;
     border-radius: 5px;
 }
 
@@ -516,19 +530,19 @@ section.allElems .weather{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 .weather-header h1{
     font-size: 60px;
 }
 .weather-header h2{
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 500;
 }
 
 .weather-header2 h1{
     font-size: 40px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 .weather-header2 h2{
     font-size: 25px;
@@ -542,7 +556,7 @@ font-size: 12px;
     font-size: 35px;
     font-weight: 700;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 
@@ -607,8 +621,8 @@ font-size: 12px;
 
 /* INPUT */
 .addTask form .inp{
-    background-color: var(--sec);
-    color: var(--tri2);
+    background-color: rgb(223, 223, 223);
+    color: black;
     border-radius: 8px;
 }
 .addTask form .inp:focus{
@@ -659,10 +673,16 @@ font-size: 12px;
 summary{
     background-color: var(--tri);
     color: var(--tri2);
+    padding: 10px;
+    font-size: 15px;
 }
 details{
     background-color: var(--sec);
     color: var(--tri2);
+    padding: 10px;
+    font-size: 15px;
+    height: 20%;
+    
 }
 
 /* PLANNER */
@@ -684,4 +704,130 @@ details{
 nav{
     background-color: var(--tri2);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+.done{
+    background: var(--tri) !important;
+    color: white;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+details p{
+    font-size: 18px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* // responsive */
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* For Tablets and smaller screens (under 1024px) */
+@media (max-width: 1024px) {
+    .elem {
+        width: 48%; /* Show 2 cards per row instead of 5 */
+        margin-bottom: 15px;
+    }
+
+    .pomo-container {
+        padding: 100px 100px;
+    }
+
+    .todo-container {
+        flex-direction: column; /* Stack Add Task and List vertically */
+        height: auto;
+    }
+
+    .todo-container .addTask, 
+    .todo-container .allTask {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+/* For Mobile Phones (under 600px) */
+@media (max-width: 600px) {
+    .main {
+        overflow-y: auto; /* Allow scrolling on small screens */
+    }
+
+    .nav h2 {
+        font-size: 22px;
+    }
+
+    .elem {
+        width: 100%; /* Full width cards */
+    }
+
+    .weather {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .weather-header h1 {
+        font-size: 40px;
+    }
+
+    .addPlan {
+        width: 100%; /* Planner inputs take full width */
+    }
+
+    .pomo-container {
+        padding: 50px 20px;
+    }
+
+    .pomo-container-time {
+        font-size: 30px;
+    }
+
+    .button-contain button {
+        font-size: 20px;
+        padding: 8px 15px;
+    }
+
+    .motivation-content p {
+        font-size: 24px;
+    }
+
+    .heading h1 {
+        font-size: 20px;
+    }
+
+    .addTask form textarea {
+        min-height: 150px; /* Reduce height on mobile */
+    }
+
+    .OuterElem {
+        padding: 20px; /* Less padding on small screens */
+    }
+
+    /* Adjusting the motivation container top margin */
+    .OuterElem-motivation-fullpage-container {
+        margin-top: 20%;
+    }
+}
+
+/* Fix for hidden overflow on the main container for small screens */
+@media (max-height: 700px) {
+    .main {
+        overflow-y: auto;
+    }
+    .allElems {
+        height: auto;
+    }
 }

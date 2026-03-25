@@ -6,13 +6,15 @@ var OuterElemBackBtn = document.querySelectorAll('.back')
 
 allElems.forEach(function(elem){
     elem.addEventListener('click',function(){
-        OuterElem[elem.id].style.display='Block';
+        OuterElem[elem.id].style.display='block';
+        
     })
 });
 
 OuterElemBackBtn.forEach(function(btn){
     btn.addEventListener('click',function(){
         OuterElem[btn.id].style.display = 'none'
+        
     })
 })
 }
@@ -44,19 +46,22 @@ function renderTask(){
 var allTask = document.querySelector('.allTask')
 var sum='';
     currentTask.forEach(function(elem){
-        sum = sum+ `
-        <div class= "summ">
-                <div class="task">
-                    <h4>${elem.task} <span id=${elem.isChecked}>Imp</span></h4>
-                    <button class = 'complete'>Mark as complete</button>
-                </div>
-                <details>
-                    <summary>Task Description</summary>
-                    <p>${elem.taskArea}</p>
-                    <button class ='del'>Delete</button>
-                    </details>
-            </div>`
-    })
+    sum += `
+    <div class="summ">
+        <div class="task ${elem.completed ? 'done' : ''}">
+            <h4>${elem.task} <span id=${elem.isChecked}>Imp</span></h4>
+            <button class='complete'>
+                ${elem.completed ? 'Completed' : 'Mark as complete'}
+            </button>
+        </div>
+        <details>
+            <summary>Task Description</summary>
+            <p>${elem.taskArea}</p>
+            <button class='del' style = "background-color:red">Delete</button>
+        </details>
+        
+    </div>`
+})
     allTask.innerHTML = sum;
 
     //Delete
@@ -72,6 +77,22 @@ del.forEach(function(btn,i){
 taskName.value = ''
 taskCheck.checked=false
 taskArea.value = ''
+
+// Mark as complete
+var complete = document.querySelectorAll('.complete');
+complete.forEach(function(btn,i){
+    btn.addEventListener('click',function(){
+        
+       
+        currentTask[i].completed = !currentTask[i].completed;
+
+       
+        localStorage.setItem("arr",JSON.stringify(currentTask));
+
+       
+        renderTask();
+    })
+});
 
 }
 }
@@ -213,7 +234,7 @@ if (totalTime <= 0) {
 }
         updateTimer()
         console.log(totalTime)
-    }, 10)
+    }, 1000)
 })
 
 
@@ -237,7 +258,7 @@ var rain = document.querySelector('.weather-header2 h2')
 var h3 = document.querySelectorAll('.weather-header2 h3')
 
 
-var apiKey = '87cf32deedd9442793a70453250305'
+// var apiKey = 'API Key'
 var cityName = "Delhi"
 // openSenseMap API Example
 
@@ -311,23 +332,41 @@ function changeTheme(){
 
 document.querySelector('.ri-sun-fill').addEventListener('click',function(){
     if (flag == 0) {
-            rootElement.style.setProperty('--pri', '#F8F4E1')
-            rootElement.style.setProperty('--sec', '#222831')
-            rootElement.style.setProperty('--tri', '#948979')
-            rootElement.style.setProperty('--tri2', '#393E46')
-            flag = 1
+            
+            rootElement.style.setProperty('--prim', '#0F172A');
+            rootElement.style.setProperty('--sec', '#1E293B');
+            rootElement.style.setProperty('--tri', '#3B82F6');
+            rootElement.style.setProperty('--tri2', '#F8FAFC');
+            flag = 1;
         } else if (flag == 1) {
-            rootElement.style.setProperty('--pri', '#F1EFEC')
-            rootElement.style.setProperty('--sec', '#030303')
-            rootElement.style.setProperty('--tri', '#D4C9BE')
-            rootElement.style.setProperty('--tri2', '#123458')
-            flag = 2
-        } else if (flag == 2) {
-            rootElement.style.setProperty('--pri', '#F8F4E1')
-            rootElement.style.setProperty('--sec', '#381c0a')
-            rootElement.style.setProperty('--tri', '#FEBA17')
-            rootElement.style.setProperty('--tri2', '#74512D')
-            flag = 0
+            
+            rootElement.style.setProperty('--prim', '#121212');
+            rootElement.style.setProperty('--sec', '#1C1C1C');
+            rootElement.style.setProperty('--tri', '#D4AF37');
+            rootElement.style.setProperty('--tri2', '#FFFFFF');
+            flag = 2;
+        }  else if (flag == 2) {
+            
+            rootElement.style.setProperty('--prim', '#2E3440');
+            rootElement.style.setProperty('--sec', '#3B4252');
+            rootElement.style.setProperty('--tri', '#88C0D0');
+            rootElement.style.setProperty('--tri2', '#ECEFF4');
+            flag = 4;
+        } else if (flag == 3) {
+            
+            rootElement.style.setProperty('--prim', '#06150D');
+            rootElement.style.setProperty('--sec', '#112A1D');
+            rootElement.style.setProperty('--tri', '#10B981');
+            rootElement.style.setProperty('--tri2', '#F0FDF4');
+            flag = 5;
+        } else if (flag == 4) {
+            
+            rootElement.style.setProperty('--prim', '#1C1917');
+            rootElement.style.setProperty('--sec', '#292524');
+            rootElement.style.setProperty('--tri', '#D97706');
+            rootElement.style.setProperty('--tri2', '#FAFAF9');
+            flag = 0; 
         }})
     }
     changeTheme()
+
